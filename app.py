@@ -100,8 +100,8 @@ def main():
 
     if classifier == "Random Forest":
         st.sidebar.subheader("Model Hyperparameters")
-        n_estimators = st.sidebar.number_input("The number of tress in the forest", 100, 5000, step=10, key="n_estimators")
-        max_depth = st.sidebar.number_input("the maximum depth of the tree", 1, 20, step=1, key="max_depth")
+        n_estimators = int(st.sidebar.number_input("The number of tress in the forest", 100, 5000, step=10, key="n_estimators"))
+        max_depth = int(st.sidebar.number_input("the maximum depth of the tree", 1, 20, step=1, key="max_depth"))
         bootstrap_choice = st.sidebar.radio("Bootstrap samples when building trees", ("True", "False"), key="bootstrap")
         bootstrap = True if bootstrap_choice == "True" else False
 
