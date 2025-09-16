@@ -84,9 +84,6 @@ def main():
         C = st.sidebar.number_input("C (Regularization Parameter)", 0.01, 10.0, step=0.01, key="C_LR")
         max_iter = st.sidebar.slider("Maximum number of iterations", 100, 500, key="max_iter")
 
-        C = float(C)
-        max_iter = int(max_iter)
-
         metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
 
         if st.sidebar.button("Classify", key="classify"):
@@ -96,8 +93,8 @@ def main():
             accuracy = model.score(x_test, y_test)
             y_pred = model.predict(x_test)
             st.write("Accuracy: ", round(accuracy, 2))
-            st.write("Precision: ", round(precision_score(y_test, y_pred), 2))
-            st.write("Recall: ", round(recall_score(y_test, y_pred), 2))
+            st.write("Precision: ", round(precision_score(y_test, y_pred, labels=class_names), 2))
+            st.write("Recall: ", round(recall_score(y_test, y_pred, labels=class_names), 2))
             plot_metrics(metrics) 
 
 
@@ -105,8 +102,8 @@ def main():
         st.sidebar.subheader("Model Hyperparameters")
         n_estimators = st.sidebar.number_input("The number of tress in the forest", 100, 5000, step=10, key="n_estimators")
         max_depth = st.sidebar.number_input("the maximum depth of the tree", 1, 20, step=1, key="max_depth")
-        bootstrap = st.sidebar.radio("Bootstrap samples when building trees", ("True", "False"), key="bootstrap")
-
+        bootstrap_choice = st.sidebar.radio("Bootstrap samples when building trees", ("True", "False"), key="bootstrap")
+        bootstrap = True if bootstrap_choice == "True" else False
 
         metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
 
