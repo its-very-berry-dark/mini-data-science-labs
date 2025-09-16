@@ -41,13 +41,15 @@ def main():
         if "ROC Curve" in metrics_list:
             st.subheader("ROC Curve")
             # plot_roc_curve(model, x_test, y_test)
-            disp = RocCurveDisplay.from_estimator(model, x_test, y_test, cmap="Greens")
+            disp = RocCurveDisplay.from_estimator(model, x_test, y_test)
+            disp.plot(color="green")
             st.pyplot(disp.figure_)
 
         if "Precision-Recall Curve" in metrics_list:
             st.subheader("Precision-Recall Curve")
             # plot_precision_recall_curve(model, x_test, y_test)
-            disp = PrecisionRecallDisplay.from_estimator(model, x_test, y_test, cmap="Greens")
+            disp = PrecisionRecallDisplay.from_estimator(model, x_test, y_test)
+            disp.plot(color="green")
             st.pyplot(disp.figure_)
     
     df = load_data()
