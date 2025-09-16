@@ -93,8 +93,8 @@ def main():
             accuracy = model.score(x_test, y_test)
             y_pred = model.predict(x_test)
             st.write("Accuracy: ", round(accuracy, 2))
-            st.write("Precision: ", round(precision_score(y_test, y_pred, labels=class_names), 2))
-            st.write("Recall: ", round(recall_score(y_test, y_pred, labels=class_names), 2))
+            st.write("Precision: ", round(precision_score(y_test, y_pred), 2))
+            st.write("Recall: ", round(recall_score(y_test, y_pred), 2))
             plot_metrics(metrics) 
 
 
