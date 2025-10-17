@@ -94,7 +94,7 @@ def main():
         st.subheader("View All Users")
         users = view_users()
         df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
-        st.dataframe(df)
+        st.dataframe(df, hide_index=True)
 
 
     elif choice == "Delete User":
@@ -102,7 +102,7 @@ def main():
         st.subheader("Delete a User")
         users = view_users()
         df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
-        st.dataframe(df)
+        st.dataframe(df, hide_index=True)
 
         id_list = df["ID"].tolist()
 
