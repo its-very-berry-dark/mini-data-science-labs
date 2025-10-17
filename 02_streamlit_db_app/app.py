@@ -66,7 +66,7 @@ def main():
     row_count = df.shape[0]
 
     if row_count == 0:
-        st.sidebar.markdown("Database is empty. Please input some info.")
+        st.sidebar.write("Database is empty. Please input some info.")
     else:
         st.sidebar.write(f"**Number of Users:** {row_count}")
 
