@@ -77,12 +77,27 @@ def main():
             else:
                 add_user(name, email, age)
                 st.success(f"{name} added successfully!")
+        
+        df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
+        row_count = df.shape[0]
+
+        if row_count == 0:
+            st.sidebar.write("Database is empty. Please input some info.")
+        else:
+            st.sidebar.write(f"**Current Number of Users:** {row_count}")
 
     elif choice == "View Users":
         st.subheader("View All Users")
         users = view_users()
         df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
         st.dataframe(df, hide_index=True)
+
+        row_count = df.shape[0]
+
+        if row_count == 0:
+            st.sidebar.write("Database is empty. Please input some info.")
+        else:
+            st.sidebar.write(f"**Current Number of Users:** {row_count}")
 
 
     elif choice == "Delete User":
@@ -116,7 +131,7 @@ def main():
         if row_count == 0:
             st.sidebar.write("Database is empty. Please input some info.")
         else:
-            st.sidebar.write(f"**Number of Users:** {row_count}")
+            st.sidebar.write(f"**Current Number of Users:** {row_count}")
 
 
 if __name__ == '__main__':
