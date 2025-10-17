@@ -14,7 +14,7 @@ def create_table():
 def add_user(name, email, age):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    c.execute('INSERT INTO users(name, email, age)' \
+    c.execute('INSERT INTO users(name, email, age) ' \
               'VALUES (?, ?, ?)', (name, email, age))
     conn.commit()
     conn.close()
@@ -50,7 +50,7 @@ def main():
     if choice == "Add User":
         st.subheader("Add New User")
         name = st.text_input("Name")
-        email = st.text_imput("Email")
+        email = st.text_input("Email")
         age = st.number_input("Age", 0, 120)
     
     if st.button("Submit"):
