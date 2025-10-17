@@ -62,18 +62,13 @@ def main():
     choice = st.sidebar.selectbox("Click on what to perform", menu)
 
     df = pd.DataFrame(columns=["ID", "Name", "Email", "Age"])
-    users = view_users()
-    if users:
-        df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
-        print("Database is empty. Please input some info.")
 
-    row_count, col_count = df.shape
+    row_count = df.shape[0]
 
     if row_count == 0:
-        print("Database is empty. Please input some info.")
+        st.sidebar.markdown("Database is empty. Please input some info.")
     else:
-        st.sidebar.write(f"**Rows:** {row_count}")
-        st.sidebar.write(f"**Columns:** {col_count}")
+        st.sidebar.write(f"**Number of Users:** {row_count}")
 
     if choice == "Add User":
         st.subheader("Add New User")
