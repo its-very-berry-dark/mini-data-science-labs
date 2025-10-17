@@ -6,7 +6,7 @@ import pandas as pd
 def create_table():
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    c.execute('CREATE TABLE IF NOT EXISTS users(id INTEGER' \
+    c.execute('CREATE TABLE IF NOT EXISTS users(id INTEGER ' \
         'PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, age INTEGER)')
     conn.commit()
     conn.close()

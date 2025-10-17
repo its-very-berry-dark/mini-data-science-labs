@@ -5,6 +5,7 @@ This repository contains most of the mini projects and are organized into number
 2. Python and SQL Implementation using Streamlit
 
 <br>
+
 ---  
 <br>
 
@@ -23,4 +24,5 @@ Link for Streamlit Cloud:
 
 
 <br>
+
 ---   
