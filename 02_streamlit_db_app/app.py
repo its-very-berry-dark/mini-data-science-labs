@@ -52,9 +52,9 @@ def main():
     st.sidebar.title("SQL and Python Implementation using Streamlit")
     st.markdown("Submitted by: Berida, Ronabelle D.S.")
     st.sidebar.markdown("Created in October 10, 2025")
-    st.markdown("This creates a database and view, add or delete a user's info depending "\
-                "on what you've clicked. This implements the CRUD (Create, Read, Update, and "\
-                "Delete) operations through the web interface")
+    st.markdown("This creates a database utilizing Python and SQL. Enables view, add or delete a user's info depending "\
+                "on what one clicked. This activity implements the CRUD (Create, Read, Update, and "\
+                "Delete) operations through the Streamlit web interface")
 
     create_table()
 
