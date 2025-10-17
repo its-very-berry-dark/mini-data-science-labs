@@ -63,13 +63,6 @@ def main():
 
     df = pd.DataFrame(columns=["ID", "Name", "Email", "Age"])
 
-    row_count = df.shape[0]
-
-    if row_count == 0:
-        st.sidebar.write("Database is empty. Please input some info.")
-    else:
-        st.sidebar.write(f"**Number of Users:** {row_count}")
-
     if choice == "Add User":
         st.subheader("Add New User")
         name = st.text_input("Name")
@@ -117,6 +110,13 @@ def main():
         
         else: 
             st.info("There's nothing to delete.")
+
+        row_count = df.shape[0]
+
+        if row_count == 0:
+            st.sidebar.write("Database is empty. Please input some info.")
+        else:
+            st.sidebar.write(f"**Number of Users:** {row_count}")
 
 
 if __name__ == '__main__':
