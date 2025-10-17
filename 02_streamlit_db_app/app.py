@@ -96,13 +96,21 @@ def main():
         df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
         st.dataframe(df)
 
+
     elif choice == "Delete User":
         st.subheader("Delete User")
         st.subheader("Delete a User")
         users = view_users()
         df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
         st.dataframe(df)
-        user_id = st.number_input("Enter ID to delete", 1)
+
+        id_list = df["ID"].tolist()
+
+        if len(id_list) > 0:
+            min_id, max_id = min(id_list), max(id_list)
+            user_id = st.number_input("Enter ID to delete", min_value=0)
+        else:
+            print("There's nothing to delete")
 
         if st.button("Delete"):
             delete_user(user_id)
