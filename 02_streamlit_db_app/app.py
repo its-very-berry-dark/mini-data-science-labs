@@ -31,7 +31,7 @@ def view_users():
 def delete_user(user_id):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    c.execute('DELETE FROM users WHERE id=?', (user_id,))
+    c.execute('DELETE FROM users WHERE id = ?', (user_id,))
     conn.commit()
     conn.close()
 
@@ -106,16 +106,22 @@ def main():
 
         id_list = df["ID"].tolist()
 
-        if len(id_list) > 0:
+        if id_list:
             min_id, max_id = min(id_list), max(id_list)
-            user_id = st.number_input("Enter ID to delete", min_value=0)
-        else:
-            print("There's nothing to delete")
+            user_id = st.number_input("Enter ID to delete", 
+                                      min_value=min_id, max_value=max_id,
+                                      step=1, format="%d")
 
-        if st.button("Delete"):
-            delete_user(user_id)
-            st.warning(f"User {user_id} deleted!")
-
+            if st.button("Delete"):
+                if user_id in id_list:
+                    delete_user(user_id)
+                    st.warning(f"User {user_id} deleted!")
+                    st.rerun()
+                else:
+                    st.error("ID currently non-existent")
+        
+        else: 
+            st.info("There's nothing to delete.")
 
 
 if __name__ == '__main__':
