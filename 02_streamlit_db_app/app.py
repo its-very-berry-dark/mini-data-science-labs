@@ -61,6 +61,12 @@ def main():
     menu = ["Add User", "View Users", "Delete User"]
     choice = st.sidebar.selectbox("Click on what to perform", menu)
 
+    df = pd.DataFrame(columns=["ID", "Name", "Email", "Age"])
+    users = view_users()
+    if users:
+        df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
+        print("Database is empty. Please input some info.")
+
     row_count, col_count = df.shape
 
     if row_count == 0:
@@ -75,14 +81,14 @@ def main():
         email = st.text_input("Email")
         age = st.number_input("Age", 0, 120)
     
-    if st.button("Submit"):
-        if not is_valid_name(name):
-            st.error("Wrong input for name. Please use letters only.")
-        elif not is_valid_email(email):
-            st.error("Invalid Email format. Please try again.")
-        else:
-            add_user(name, email, age)
-            st.success(f"{name} added successfully!")
+        if st.button("Submit"):
+            if not is_valid_name(name):
+                st.error("Wrong input for name. Please use letters only.")
+            elif not is_valid_email(email):
+                st.error("Invalid Email format. Please try again.")
+            else:
+                add_user(name, email, age)
+                st.success(f"{name} added successfully!")
 
     elif choice == "View Users":
         st.subheader("View All Users")
@@ -97,6 +103,7 @@ def main():
         df = pd.DataFrame(users, columns=["ID", "Name", "Email", "Age"])
         st.dataframe(df)
         user_id = st.number_input("Enter ID to delete", 1)
+
         if st.button("Delete"):
             delete_user(user_id)
             st.warning(f"User {user_id} deleted!")
