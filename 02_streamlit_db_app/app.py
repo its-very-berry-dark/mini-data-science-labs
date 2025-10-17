@@ -1,6 +1,7 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
+import re
 
 ## LIST OF FUNCTIONS ##
 def create_table():
@@ -34,6 +35,16 @@ def delete_user(user_id):
     conn.commit()
     conn.close()
 
+## Input Validation ##
+
+def is_valid_email(email):
+    pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+    return re.match(pattern, email) is not None
+
+def is_valid_name(name):
+    pattern = r'^[A-Za-z\s]+$'
+    return re.match(pattern, name)
+
 ####
 
 def main():
@@ -41,11 +52,22 @@ def main():
     st.sidebar.title("SQL and Python Implementation using Streamlit")
     st.markdown("Submitted by: Berida, Ronabelle D.S.")
     st.sidebar.markdown("Created in October 10, 2025")
+    st.markdown("This creates a database and view, add or delete a user's info depending "\
+                "on what you've clicked. This implements the CRUD (Create, Read, Update, and "\
+                "Delete) operations through the web interface")
 
     create_table()
 
     menu = ["Add User", "View Users", "Delete User"]
-    choice = st.sidebar.selectbox("Menu", menu)
+    choice = st.sidebar.selectbox("Click on what to perform", menu)
+
+    row_count, col_count = df.shape
+
+    if row_count == 0:
+        print("Database is empty. Please input some info.")
+    else:
+        st.sidebar.write(f"**Rows:** {row_count}")
+        st.sidebar.write(f"**Columns:** {col_count}")
 
     if choice == "Add User":
         st.subheader("Add New User")
@@ -54,8 +76,13 @@ def main():
         age = st.number_input("Age", 0, 120)
     
     if st.button("Submit"):
-        add_user(name, email, age)
-        st.success(f"{name} added successfully!")
+        if not is_valid_name(name):
+            st.error("Wrong input for name. Please use letters only.")
+        elif not is_valid_email(email):
+            st.error("Invalid Email format. Please try again.")
+        else:
+            add_user(name, email, age)
+            st.success(f"{name} added successfully!")
 
     elif choice == "View Users":
         st.subheader("View All Users")

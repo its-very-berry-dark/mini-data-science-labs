@@ -20,7 +20,7 @@ Link for Streamlit Cloud: https://mushroom-binary-classifier-webapp-umdvffyjz8as
 **02 | Python and SQL Implementation using Streamlit**
 This laboratory activity employs the use of Python to create and manipulate a SQLite database and integrating it into a Streamlit webapp. CRUD operations will be performed through a web interface.
 
-Link for Streamlit Cloud: 
+Link for Streamlit Cloud: https://mini-data-science-labs-bg9tvxv2uaxsfznjycdmwh.streamlit.app/
 
 
 <br>
