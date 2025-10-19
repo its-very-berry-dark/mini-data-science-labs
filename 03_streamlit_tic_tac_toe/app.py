@@ -40,6 +40,7 @@ def display_board():
                         check_winner()
                         if not st.session_state.game_over:
                             switch_player()
+                        st.rerun()
                     else:
                         st.warning("Cell already filled!")
                     
