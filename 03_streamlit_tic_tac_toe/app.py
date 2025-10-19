@@ -28,19 +28,10 @@ def display_board():
 
 def check_winner():
     winning_comb = [
-        ## rows
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        ## columns
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        ## diagonals
-        [0, 4, 8],
-        [2, 4, 6],
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],  ## rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],  ## columns
+        [0, 4, 8], [2, 4, 6]              ## diagonals
     ]
-
     board = st.session_state.board
 
     for combo in winning_comb:
@@ -53,6 +44,12 @@ def check_winner():
     if "" not in board:
         st.session_state.winner = "Draw"
         st.session_state.game_over = True
+
+def reset_game():
+    st.session_state.board = [""] * 9
+    st.session_state.current_player = "X"
+    st.session_state.winner = None
+    st.session_state.game_over = False
 
 
 def switch_player():
@@ -72,7 +69,8 @@ def main():
         else:
             st.success(f"Player {st.session_state.winner} wins!")
 
-
+    if st.button("Play Again"):
+        reset_game()
 
     st.write("Current Player: ", st.session_state.current_player)
 
