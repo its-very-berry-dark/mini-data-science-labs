@@ -14,17 +14,32 @@ def game_state():
         st.session_state.game_over = False
 
 def display_board():
-    cols = st.columns(3)
+    st.markdown(
+        """
+        <style>
+        div[data-testid="column] > div > button {
+            height: 100px;
+            width: 100px;
+            font-size: 40px;
+            font-weight: bold;
+            }
+        </style>
+        """, unsafe_allow_html=True
+    )
 
-    for i in range(9):
-        col_index = i % 3
-        row_index = i // 3
-
-        with cols[col_index]:
-            if st.button(st.session_state.board[i] or " ", key=f"cell_{i}"):
-                if st.session_state.board[i] == "" and not st.session_state.game_over:
-                    st.session_state.board[i] = st.session_state.current_player
-                    switch_player()
+    for row in range(3):
+        cols = st.columns(3, gap="small")
+        for col in range(3):
+            index = row * 3 + col
+            symbol = st.session_state.board[index]
+            display_symbol = "❌" if symbol == "X" else ("⭕" if symbol == "O" else " ")
+            with cols[col]:
+                if st.button(display_symbol, key=f"cell_{index}"):
+                    if st.session_state.board[index] == "" and not st.session_state.game_over:
+                        st.session_state.board[index] = st.session_state.current_player
+                        check_winner()
+                        if not st.session_state.game_over:
+                            switch_player()
 
 def check_winner():
     winning_comb = [
