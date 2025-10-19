@@ -17,7 +17,7 @@ def display_board():
     st.markdown(
         """
         <style>
-        div[data-testid="column] > div > button {
+        div[data-testid="column"] > div > button {
             height: 100px;
             width: 100px;
             font-size: 40px;
@@ -35,11 +35,14 @@ def display_board():
             display_symbol = "❌" if symbol == "X" else ("⭕" if symbol == "O" else " ")
             with cols[col]:
                 if st.button(display_symbol, key=f"cell_{index}"):
-                    if st.session_state.board[index] == "" and not st.session_state.game_over:
+                    if symbol == "" and not st.session_state.game_over:
                         st.session_state.board[index] = st.session_state.current_player
                         check_winner()
                         if not st.session_state.game_over:
                             switch_player()
+                    else:
+                        st.warning("Cell already filled!")
+                    
 
 def check_winner():
     winning_comb = [
@@ -68,7 +71,7 @@ def reset_game():
 
 
 def switch_player():
-    st.session_state.current_player = "0" if st.session_state.current_player == "X" else "X"
+    st.session_state.current_player = "O" if st.session_state.current_player == "X" else "X"
 
 
 
