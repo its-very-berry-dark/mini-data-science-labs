@@ -55,14 +55,14 @@ def check_winner():
 
     for combo in winning_comb:
         a, b, c = combo
-        if board[a] != "" and board[a] == board[b] == board[c]:
-            st.session_state.winner = board[a]
+        if board[a] and board[a] == board[b] == board[c]:
             st.session_state.game_over = True
+            st.session_state.winner = board[a]
             return
         
-    if "" not in board:
-        st.session_state.winner = "Draw"
+    if all(cell != "" for cell in board):
         st.session_state.game_over = True
+        st.session_state.winner = "Draw"
 
 def reset_game():
     st.session_state.board = [""] * 9
