@@ -14,6 +14,8 @@ An activity from campus employing three Machine Learning Models: Support Vector 
 
 Link for Streamlit Cloud: https://mushroom-binary-classifier-webapp-umdvffyjz8askttpzyj9dt.streamlit.app/
 
+<br>
+
 ---   
 <br>
 
@@ -29,10 +31,18 @@ Link for Streamlit Cloud: https://mini-data-science-labs-bg9tvxv2uaxsfznjycdmwh.
 <br>
 
 **03 | Tic-Tac-Toe via Streamlit**
-This mini projects employs the use of Python to create a Tic-Tac-Toe game and integrate it into a Streamlit webapp. My objective for this is to make myself more familiar with the usage of Streamlit and also, I'm more familiar with the mentioned library than other display UIs for now.
+This mini project employs the use of Python to create a Tic-Tac-Toe game and integrate it into a Streamlit webapp. My objective for this is to make myself more familiar with the usage of Streamlit and also, I'm more familiar with the mentioned library than other display UIs for now.
 
 Link for Streamlit Cloud: https://mini-data-science-labs-dfnxxtuf4m2gi5cghqyqvx.streamlit.app/
 
 <br>
 
 ---  
+<br>
+
+**03 | Image Color Palette Extractor**
+This mini project employs the use of Python to create a webapp showing an image color palette extractor. This will be my next mini project - to make myself more familiar with the usage of Streamlit and this is also a practice.
+
+Link for Streamlit Cloud: https://mini-data-science-labs-dfnxxtuf4m2gi5cghqyqvx.streamlit.app/
+
+<br>
