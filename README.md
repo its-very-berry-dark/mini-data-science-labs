@@ -43,6 +43,6 @@ Link for Streamlit Cloud: https://mini-data-science-labs-dfnxxtuf4m2gi5cghqyqvx.
 **04 | Image Color Palette Extractor**
 This mini project employs the use of Python to create a webapp showing an image color palette extractor. This will be my next mini project - to make myself more familiar with the usage of Streamlit and this is also a practice.
 
-Link for Streamlit Cloud: https://mini-data-science-labs-dfnxxtuf4m2gi5cghqyqvx.streamlit.app/
+Link for Streamlit Cloud: to be added
 
 <br>
