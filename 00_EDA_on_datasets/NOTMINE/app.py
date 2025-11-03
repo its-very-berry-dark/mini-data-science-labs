@@ -12,7 +12,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_google_genai import GoogleGenerativeAI
 from langchain_huggingface import HuggingFaceEmbeddings
 import google.generativeai as genai
 
@@ -702,7 +702,7 @@ if query and st.session_state.retriever:
         ("system", system_prompt),
         ("human", "{input}")
     ])
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", temperature=0)
+    llm = GoogleGenerativeAI(model="gemini-2.0-flash-exp", temperature=0)
     rag_chain = (
         {"context": st.session_state.retriever, "input": RunnablePassthrough()}
         | prompt
