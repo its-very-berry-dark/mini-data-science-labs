@@ -1,7 +1,7 @@
-streamlit>=1.36.0
-python-dotenv>=1.0.0
+streamlit==1.36.0
+python-dotenv==1.0.1
 
-# LangChain and ecosystem (stable compatible mix)
+# LangChain ecosystem (stable set that supports pydantic v1)
 langchain==0.1.16
 langchain-core==0.1.52
 langchain-community==0.0.34
@@ -10,12 +10,10 @@ langchain-chroma==0.0.7
 langchain-google-genai==0.0.11
 langchain-huggingface==0.0.3
 
-# Other required dependencies
-google-generativeai>=0.3.2
-chromadb>=0.4.22
-huggingface-hub>=0.20.3
-pypdf>=4.0.1
-
-# Compatibility helpers
-typing-extensions>=4.8.0
-pydantic>=1.10.13
+# Dependencies for the above
+google-generativeai==0.3.2
+chromadb==0.4.22
+huggingface-hub==0.20.3
+pypdf==4.0.1
+typing-extensions==4.9.0
+pydantic==1.10.13
