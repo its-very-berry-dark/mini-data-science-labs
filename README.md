@@ -3,6 +3,7 @@ This repository contains most of the mini projects and are organized into number
 #### List of Mini Projects:
 1. Mushroom Binary Classifier (Webapp Employing Streamlit)
 2. Python and SQL Implementation using Streamlit
+3. Tic-Tac-Toe via Streamlit
 
 <br>
 
@@ -43,6 +44,6 @@ Link for Streamlit Cloud: https://mini-data-science-labs-dfnxxtuf4m2gi5cghqyqvx.
 **04 | Image Color Palette Extractor**  
 This mini project employs the use of Python to create a webapp showing an image color palette extractor. This will be my next mini project - to make myself more familiar with the usage of Streamlit and this is also a practice.
 
-Link for Streamlit Cloud: to be added
+Link for Streamlit Cloud: to be added 
 
 <br>
