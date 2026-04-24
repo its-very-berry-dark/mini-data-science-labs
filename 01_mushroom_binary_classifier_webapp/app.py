@@ -18,7 +18,9 @@ def main():
 
     @st.cache_data(persist=True)
     def load_data():
-        data = pd.read_csv("mushrooms.csv")
+        base_path = os.path.dirname(__file__)
+        file_path = os.path.join(base_path, "mushrooms.csv")    # Recent modification: To directly access the dataset in the mushroom subfolder
+        data = pd.read_csv(file_path)
         label = LabelEncoder()
         for col in data.columns:
             data[col] = label.fit_transform(data[col])
